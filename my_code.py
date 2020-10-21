@@ -1,27 +1,8 @@
 # Collaborators (including web sites where you got help: https://www.w3schools.com/python/default.asp, https://stackoverflow.com/questions/19782075/how-to-stop-terminate-a-python-script-from-running#:~:text=To%20stop%20a%20running%20program,want%20to%20terminate%20the%20program.&text=Ctrl%20%2B%20Z%20should%20do%20it,caught%20in%20the%20python%20shell.
 #  
 import sys
-print ("Android: Hello there stranger, my name is Android and I'm your personal adviser on Mars.")
-print ("Android: So, what is your name?")
-name = input("Your name: ")
-print ("Android: It's a pleasure to meet you", name)
-print ("Android: On Mars, foods and water are limited, so we need to plant fruits and search for water.")
-print ("Android: Now, let me pick out 3 plants based on 3 of your number inputs.")
-plant_list = ["avocados", "bananas", "grapefruits", "jackfruits", "kiwis", "lychees", "mangoes", "papayas", "peaches", "strawberries", "watermelons"]
-try:
-    fruit_1 = int(input("Your first number (from 0 to 10): "))
-    fruit_2 = int(input("Your second number (from 0 to 10): "))
-    fruit_3 = int(input("Your third number (from 0 to 10): "))
-    while fruit_1 > 0 or fruit_1 < 10 or fruit_2 > 0 or fruit_2 < 10 or fruit_3 > 0 or fruit_3 < 10: #need to look back at this later
-        print ("Based on these number, I suggest you to plant " + plant_list[fruit_1] + ", " + plant_list[fruit_2] + ", and " + plant_list[fruit_3])
-        break
-except:
-    print ("You are automatically assigned with avocados, bananas and watermelons")
-
-print ("Android: Great, now all we need is water for the plant.")
-print ("Android: Since we are on Mars and we can easily get lost, I suggest we either go straight North, East, West, or South.")
-
-def RPS(): # I will assume that these monsters don't have fingers
+#This is the rock paper scissors game, it will decide wether the game will continue or stop
+def RPS():
     user = int(input("Type 1 for rock, 2 for paper, and 3 for scissors: "))
     if user == 1:
         print ("It's a tie, play again.")
@@ -31,7 +12,7 @@ def RPS(): # I will assume that these monsters don't have fingers
     elif user == 3:
         print ("The monster has defeated you. Game over.")
         sys.exit()
-
+#Here are 4 choices that player will have to choose, each will lead to a different ending
 def North():
     print ("There is nothing here other than Mars cactus.")
     print ("You die due to exhaustion. Game over.")
@@ -69,6 +50,29 @@ def South():
     print ("Android: Oh look, there's a lake over there.")
     print ("Android: With this amount of water, we can last at least 10 more years on Mars.")
     print ("Congratulation, you survive.")
+#This is just a function to manipulate the list
+def Choosing_plant():
+    while True:
+        try:
+            fruit_1 = int(input("Your first number (from 0 to 10): "))
+            fruit_2 = int(input("Your second number (from 0 to 10): "))
+            fruit_3 = int(input("Your third number (from 0 to 10): "))
+            print ("Based on these number, I suggest you to plant " + plant_list[fruit_1] + ", " + plant_list[fruit_2] + ", and " + plant_list[fruit_3])
+            break
+        except:
+            print ("Sorry, your input is invalid, please re-enter the values.")
+
+#main part (mostly print statement)
+print ("Android: Hello there stranger, my name is Android and I'm your personal adviser on Mars.")
+print ("Android: So, what is your name?")
+name = input("Your name: ")
+print ("Android: It's a pleasure to meet you", name)
+print ("Android: On Mars, foods and water are limited, so we need to plant fruits and search for water.")
+print ("Android: Now, let me pick out 3 plants based on 3 of your number inputs.")
+plant_list = ["avocados", "bananas", "grapefruits", "jackfruits", "kiwis", "lychees", "mangoes", "papayas", "peaches", "strawberries", "watermelons"]
+print (Choosing_plant())
+print ("Android: Great, now all we need is water for the plant.")
+print ("Android: Since we are on Mars and we can easily get lost, I suggest we either go straight North, East, West, or South.")
 
 direction = str(input("Which direction will you take?(North, East, West, South): "))
 if direction == "North":
